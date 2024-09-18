@@ -7,8 +7,6 @@ let numberOfPixels = (Math.pow(numberOfRows,2));
 drawPixels(numberOfPixels);
 //eventually will take in user input, but not yet
 
-//make a function that creates divs multiple times
-
 function drawPixels(numberOfPixels) {
     let pixelDimensions = (numberOfPixels) => (1000 / numberOfRows) + "px";
     for (let i=0; i < numberOfPixels; i++) {
