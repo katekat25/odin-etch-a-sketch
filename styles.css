@@ -1,7 +1,18 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
 #container {
     border: 2px solid red;
+    display: flex;
+    height: 100%;
 }
 
 .pixel {
+    display: flex;
     background-color: green;
 }
+
+/*make the pixel dimensions shrink to fit the size of the viewfinder*/
