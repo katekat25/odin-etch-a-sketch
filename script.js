@@ -10,13 +10,14 @@ drawPixels(numberOfPixels);
 //make a function that creates divs multiple times
 
 function drawPixels(numberOfPixels) {
+    let pixelDimensions = (numberOfPixels) => (1000 / numberOfRows) + "px";
     for (let i=0; i < numberOfPixels; i++) {
         let newDiv = document.createElement("div");
         newDiv.classList.add("pixel");
         newDiv.textContent = "What up";
         container.appendChild(newDiv);
-        newDiv.style.width = (1000 / numberOfRows) + "px";
-        newDiv.style.height = (1000 / numberOfRows) + "px";
+        newDiv.style.width = pixelDimensions();
+        newDiv.style.height = pixelDimensions();
     }
     
 }
