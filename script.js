@@ -1,7 +1,8 @@
 console.log("Hello worldddd");
 const container = document.querySelector("#container");
 
-let numberOfDivs = 16;
+let numberOfRows = 5;
+let numberOfDivs = (Math.pow(numberOfRows,2));
 
 makeManyDivs(numberOfDivs);
 //eventually will take in user input, but not yet
@@ -14,5 +15,8 @@ function makeManyDivs(numberOfDivs) {
         newDiv.classList.add("pixel");
         newDiv.textContent = "What up";
         container.appendChild(newDiv);
+        newDiv.style.width = (1000 / Math.sqrt(numberOfDivs)) + "px";
+        newDiv.style.height = (1000 / Math.sqrt(numberOfDivs)) + "px";
     }
+    
 }
