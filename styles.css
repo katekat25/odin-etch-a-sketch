@@ -7,10 +7,10 @@
     margin: auto;
 }
 
-.pixel {
-    /*background-color: green;*/
-}
-
-.colored-pixel {
+/*.colored-pixel {
     background-color: black;
+}*/
+
+.blank-pixel {
+    background-color: white;
 }
