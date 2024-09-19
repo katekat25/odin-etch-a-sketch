@@ -22,7 +22,6 @@ inputBox.addEventListener("keypress", function (e) {
         let pixelCount = getPixelCount(userRows);
         let dimensions = getDimensions(userRows);
         populateGrid(pixelCount, dimensions);
-        colorPixels();
     }
 });
 
@@ -37,12 +36,16 @@ function populateGrid(numberOfPixels, pixelDimensions) {
         newDiv.style.width = pixelDimensions;
         newDiv.style.height = pixelDimensions;
         newDiv.addEventListener("mouseover", () => {
-            newDiv.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            newDiv.style.backgroundColor = getRandomRgb();
         })
     }
 }
 
-function colorPixels() {
+function getRandomRgb(){
+    let colorValue = Math.floor(Math.random() * 255)
+    + "," + Math.floor(Math.random() * 255) + ","
+    + Math.floor(Math.random() * 255);
+    return "rgb(" + colorValue + ")";
 }
 
 function getDimensions(numberOfRows) {
