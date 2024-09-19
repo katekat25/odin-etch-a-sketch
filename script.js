@@ -10,7 +10,9 @@ inputBox.addEventListener("keypress", function (e) {
 });
 
 function drawPixels(numberOfPixels, pixelDimensions) {
-
+    if (container.firstChild) {
+        container.innerHTML = '';
+    }
     for (let i = 0; i < numberOfPixels; i++) {
         let newDiv = document.createElement("div");
         newDiv.classList.add("pixel");
@@ -19,7 +21,6 @@ function drawPixels(numberOfPixels, pixelDimensions) {
         newDiv.style.width = pixelDimensions;
         newDiv.style.height = pixelDimensions;
     }
-
 }
 
 function getDimensions(numberOfRows) {
