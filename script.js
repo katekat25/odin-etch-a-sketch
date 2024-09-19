@@ -1,21 +1,31 @@
 console.log("Hello worldddd");
 const container = document.querySelector("#container");
+const inputBox = document.querySelector("input");
 
-let numberOfRows = 5;
-let numberOfPixels = (Math.pow(numberOfRows,2));
+inputBox.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        let userRows = e.target.value;
+        drawPixels(getPixelCount(userRows), getDimensions(userRows));
+    }
+});
 
-drawPixels(numberOfPixels);
-//eventually will take in user input, but not yet
+function drawPixels(numberOfPixels, pixelDimensions) {
 
-function drawPixels(numberOfPixels) {
-    let pixelDimensions = (numberOfPixels) => (1000 / numberOfRows) + "px";
-    for (let i=0; i < numberOfPixels; i++) {
+    for (let i = 0; i < numberOfPixels; i++) {
         let newDiv = document.createElement("div");
         newDiv.classList.add("pixel");
         newDiv.textContent = "What up";
         container.appendChild(newDiv);
-        newDiv.style.width = pixelDimensions();
-        newDiv.style.height = pixelDimensions();
+        newDiv.style.width = pixelDimensions;
+        newDiv.style.height = pixelDimensions;
     }
-    
+
+}
+
+function getDimensions(numberOfRows) {
+    return (1000 / numberOfRows) + "px";
+}
+
+function getPixelCount(numberOfRows) {
+    return Math.pow(numberOfRows, 2);
 }
