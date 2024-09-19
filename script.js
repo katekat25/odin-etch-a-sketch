@@ -10,6 +10,11 @@ inputBox.addEventListener("keypress", function (e) {
             e.target.value = '';
             return;
         }
+        if (userRows < 1) {
+            alert("Please enter a number that's at least 1.");
+            e.target.value = '';
+            return;
+        }
         populateGrid(getPixelCount(userRows), getDimensions(userRows));
     }
 });
