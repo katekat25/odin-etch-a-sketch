@@ -33,10 +33,13 @@ function populateGrid(numberOfPixels, pixelDimensions) {
     for (let i = 0; i < numberOfPixels; i++) {
         let newDiv = document.createElement("div");
         newDiv.classList.add("pixel");
-        newDiv.textContent = "I'm a pixel!";
+        //newDiv.textContent = "I'm a pixel!";
         container.appendChild(newDiv);
         newDiv.style.width = pixelDimensions;
         newDiv.style.height = pixelDimensions;
+        newDiv.addEventListener("mouseover", () => {
+            newDiv.classList.add("colored-pixel");
+        })
     }
 }
 

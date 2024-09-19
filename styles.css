@@ -8,5 +8,9 @@
 }
 
 .pixel {
-    background-color: green;
+    /*background-color: green;*/
+}
+
+.colored-pixel {
+    background-color: black;
 }
