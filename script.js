@@ -1,4 +1,3 @@
-console.log("Hello worldddd");
 const container = document.querySelector("#container");
 const inputBox = document.querySelector("input");
 
@@ -20,7 +19,10 @@ inputBox.addEventListener("keypress", function (e) {
             e.target.value = '';
             return;
         }
-        populateGrid(getPixelCount(userRows), getDimensions(userRows));
+        let pixelCount = getPixelCount(userRows);
+        let dimensions = getDimensions(userRows);
+        populateGrid(pixelCount, dimensions);
+        colorPixels();
     }
 });
 
@@ -31,14 +33,15 @@ function populateGrid(numberOfPixels, pixelDimensions) {
     for (let i = 0; i < numberOfPixels; i++) {
         let newDiv = document.createElement("div");
         newDiv.classList.add("pixel");
-        newDiv.textContent = "What up";
+        newDiv.textContent = "I'm a pixel!";
         container.appendChild(newDiv);
         newDiv.style.width = pixelDimensions;
         newDiv.style.height = pixelDimensions;
     }
 }
 
-
+function colorPixels() {
+}
 
 function getDimensions(numberOfRows) {
     return (1000 / numberOfRows) + "px";
