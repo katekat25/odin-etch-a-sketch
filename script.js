@@ -5,11 +5,16 @@ const inputBox = document.querySelector("input");
 inputBox.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
         let userRows = e.target.value;
-        drawPixels(getPixelCount(userRows), getDimensions(userRows));
+        if (userRows > 100) {
+            alert("Please enter a number less than 100.");
+            e.target.value = '';
+            return;
+        }
+        populateGrid(getPixelCount(userRows), getDimensions(userRows));
     }
 });
 
-function drawPixels(numberOfPixels, pixelDimensions) {
+function populateGrid(numberOfPixels, pixelDimensions) {
     if (container.firstChild) {
         container.innerHTML = '';
     }
@@ -22,6 +27,8 @@ function drawPixels(numberOfPixels, pixelDimensions) {
         newDiv.style.height = pixelDimensions;
     }
 }
+
+
 
 function getDimensions(numberOfRows) {
     return (1000 / numberOfRows) + "px";
