@@ -1,5 +1,6 @@
 const container = document.querySelector("#container");
 const inputBox = document.querySelector("input");
+const clearBtn = document.querySelector("button");
 
 inputBox.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
@@ -25,10 +26,12 @@ inputBox.addEventListener("keypress", function (e) {
     }
 });
 
+clearBtn.addEventListener("click", function() {
+    clearGrid();
+});
+
 function populateGrid(numberOfPixels, pixelDimensions) {
-    if (container.firstChild) {
-        container.innerHTML = '';
-    }
+    clearGrid();
     for (let i = 0; i < numberOfPixels; i++) {
         let newDiv = document.createElement("div");
         newDiv.className = "blank-pixel";
@@ -54,4 +57,10 @@ function getDimensions(numberOfRows) {
 
 function getPixelCount(numberOfRows) {
     return Math.pow(numberOfRows, 2);
+}
+
+function clearGrid() {
+    if (container.firstChild) {
+        container.innerHTML = '';
+    }
 }
